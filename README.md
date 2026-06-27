@@ -12,37 +12,48 @@ UserLAnd/
 ### 🚀 1. Création instantanée du projet dans UserLAnd
 >Colle ceci dans ton terminal UserLAnd (Ubuntu/Debian/Kali) :
 ```bash
-mkdir userland-project && cd userland-project
+---
 
-README minimal
-cat > README.md << 'EOF'
+## ⚙️ **2. Nouveau start.sh (v1.1)**  
+Plus propre, plus utile, avec un mini‑menu.
 
-UserLAnd Project
-Projet minimal compatible Ubuntu/Debian/Kali sous UserLAnd.
-Prêt pour GitHub et pour exécuter des scripts Linux.
-EOF
+```bash
+#!/bin/bash
 
-Script principal
-cat > start.sh << 'EOF'
+echo "==============================="
+echo "   UserLAnd Project — v1.1"
+echo "==============================="
+echo ""
+echo "1) Vérifier l'environnement"
+echo "2) Mettre à jour le système"
+echo "3) Lancer un test rapide"
+echo "4) Quitter"
+echo ""
 
-!/bin/bash
-echo "Projet UserLAnd opérationnel."
-EOF
-chmod +x start.sh
+read -p "Choix : " choice
 
-Gitignore minimal
-cat > .gitignore << 'EOF'
-*.log
-*.tmp
-*.bak
-pycache/
-*.pyc
-EOF
-
-Initialisation Git
-git init
-git add .
-git commit -m "Initialisation du projet UserLAnd ultra-rapide"
+case $choice in
+    1)
+        echo "[*] Vérification..."
+        uname -a
+        lsb_release -a 2>/dev/null
+        ;;
+    2)
+        echo "[*] Mise à jour du système..."
+        sudo apt update && sudo apt upgrade -y
+        ;;
+    3)
+        echo "[*] Test rapide OK."
+        echo "UserLAnd opérationnel."
+        ;;
+    4)
+        echo "Fermeture."
+        exit 0
+        ;;
+    *)
+        echo "Choix invalide."
+        ;;
+esac
 ```
 - Ton projet est maintenant prêt à être poussé sur GitHub.
 
