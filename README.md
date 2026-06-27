@@ -7,7 +7,7 @@ UserLAnd/
 ├── LICENCE
 ├── .github
       ├── workflows
-      └── greetings.xml
+      └── greetings.yml
 └── .gitignore
 └── .gitkeep
 ├── start.sh
