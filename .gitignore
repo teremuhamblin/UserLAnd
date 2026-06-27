@@ -1,7 +1,10 @@
 # Logs
 *.log
-*.tmp
-*.bak
+/tmp/userland.log
+
+# Cache
+cache/
+session/
 
 # Python
 __pycache__/
