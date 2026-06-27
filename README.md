@@ -75,6 +75,18 @@ git push -u origin main
    - 1 README clair  
    - 1 .gitignore propre  
    - 1 commit initial  
-   - Compatible Ubuntu/Debian/Kali dans UserLAnd  
+   - Compatible Ubuntu/Debian/Kali dans UserLAnd
+
+### 🧭 4. Commit Git recommandé :
+```bash
+git add .
+git commit -m "Release v1.1 — README amélioré, start.sh optimisé, gitignore étendu"
+git push
+```
+
+---
+
+ 
+
 
 🔥
