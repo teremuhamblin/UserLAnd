@@ -3,8 +3,13 @@
 ```text
 UserLAnd/
 ├── README.md
-├── start.sh
+├── LICENCE
+├── .github
+      ├── workflows
+      └── greetings.xml
 └── .gitignore
+└── .gitkeep
+├── start.sh
 ```
 
 ---
