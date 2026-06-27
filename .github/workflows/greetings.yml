@@ -1,16 +1,175 @@
-name: Greetings
+name: Military Ops Center
 
-on: [pull_request_target, issues]
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
 
 jobs:
+
+  ###############################################
+  # 1) ACCUEIL MILITAIRE ULTRA AVANCÉ
+  ###############################################
   greeting:
     runs-on: ubuntu-latest
     permissions:
       issues: write
       pull-requests: write
+
     steps:
-    - uses: actions/first-interaction@v1
+    - name: First Interaction – Military Protocol
+      uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: "Message that will be displayed on users' first issue"
-        pr-message: "Message that will be displayed on users' first pull request"
+        issue-message: |
+          🪖 **Bienvenue dans la Zone Opérationnelle, Soldat.**
+
+          Tu viens d’ouvrir ta **première issue** sur le projet.
+          Le Centre de Commandement a reçu ton rapport.
+
+          🔍 Analyse en cours  
+          🗂️ Classification tactique  
+          🛠️ Déploiement d’une unité si nécessaire  
+
+          **Légion – Honneur et Fidélité.**
+        pr-message: |
+          🪖 **Première Pull Request détectée – Procédure d’intégration engagée.**
+
+          Ton code est en cours d’examen par l’unité d’ingénierie.
+
+          🔎 Analyse du diff  
+          🧪 Tests automatiques  
+          📝 Vérification tactique  
+
+          Si validée, ta contribution sera intégrée dans la prochaine version opérationnelle.
+
+          **Force & Honneur.**
+
+  ###############################################
+  # 2) AUTO-LABEL INTELLIGENT
+  ###############################################
+  auto-label:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - name: Auto-label selon le type d’issue
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const issue = context.payload.issue || context.payload.pull_request;
+          if (!issue) return;
+
+          const title = issue.title.toLowerCase();
+          let labels = [];
+
+          if (title.includes("bug") || title.includes("erreur") || title.includes("fix")) {
+            labels.push("🟥 Bug");
+          }
+          if (title.includes("feature") || title.includes("ajout") || title.includes("nouveau")) {
+            labels.push("🟩 Feature");
+          }
+          if (title.includes("doc") || title.includes("documentation")) {
+            labels.push("📘 Documentation");
+          }
+          if (labels.length === 0) {
+            labels.push("🟦 Analyse");
+          }
+
+          await github.rest.issues.addLabels({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: issue.number,
+            labels: labels
+          });
+
+  ###############################################
+  # 3) AUTO-ASSIGNATION MILITAIRE
+  ###############################################
+  auto-assign:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - name: Assignation automatique au Commandant
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const commander = "Teremu"; // assignation automatique
+          const issue = context.payload.issue || context.payload.pull_request;
+
+          await github.rest.issues.addAssignees({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: issue.number,
+            assignees: [commander]
+          });
+
+  ###############################################
+  # 4) ANALYSE STATIQUE / LINTING DEVOPS
+  ###############################################
+  code-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request_target'
+    permissions:
+      pull-requests: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Installation des dépendances
+      run: |
+        if [ -f "package.json" ]; then npm install; fi
+        if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
+
+    - name: Linting JS (si applicable)
+      run: |
+        if [ -f "package.json" ]; then npx eslint . || true; fi
+
+    - name: Linting Python (si applicable)
+      run: |
+        if [ -f "requirements.txt" ]; then pip install flake8 && flake8 || true; fi
+
+  ###############################################
+  # 5) SÉCURITÉ BLUE TEAM (SCAN)
+  ###############################################
+  security-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Analyse de sécurité (CodeQL)
+      uses: github/codeql-action/init@v3
+      with:
+        languages: javascript, python
+
+    - name: Analyse
+      uses: github/codeql-action/analyze@v3
+
+  ###############################################
+  # 6) AUTO-CLOSE DES ISSUES INACTIVES
+  ###############################################
+  auto-close:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+    - name: Fermer les issues inactives
+      uses: actions/stale@v9
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        days-before-stale: 20
+        days-before-close: 7
+        stale-issue-message: "⏳ **Inactivité détectée.** Le Centre de Commandement attend une réponse."
+        close-issue-message: "❌ **Issue fermée pour inactivité prolongée.**"
