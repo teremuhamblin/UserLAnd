@@ -38,7 +38,8 @@ git push -u origin main
 - un projet UserLAnd propre et opérationnel
    - 1 script exécutable  
    - 1 README clair  
-   - 1 .gitignore propre  
+   - 1 .gitignore propre
+   - 1 .gitkeep propre
    - 1 commit initial  
    - Compatible Ubuntu/Debian/Kali dans UserLAnd
 
