@@ -1,17 +1,120 @@
-# Logs
+##############################################
+# 🪖 GITIGNORE MIL-PRO — VERSION 5.0 ULTIMATE
+# Compatible : Linux, UserLAnd, Termux, Python,
+# Shell, Node, Go, Rust, Docker, CI/CD, GitHub.
+##############################################
+
+###############
+# 🔥 LOGS
+###############
 *.log
+*.log.*
+logs/
+tmp/
 /tmp/userland.log
 
-# Cache
+###############
+# ⚡ CACHE / TEMP
+###############
 cache/
 session/
+*.cache
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
 
-# Python
+###############
+# 🐍 PYTHON
+###############
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+*.spec
 
-# Shell
+###############
+# 🐚 SHELL / EDITORS
+###############
+*.bash_history
+*.zsh_history
 *.swp
+*.swo
+*.kate-swp
+*.viminfo
 
-# System
+###############
+# 🖥️ SYSTEM FILES
+###############
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+###############
+# 📦 NODE / JS
+###############
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+.next/
+.nuxt/
+dist/
+
+###############
+# 🦾 GO
+###############
+bin/
+pkg/
+*.exe
+*.test
+
+###############
+# 🦾 RUST
+###############
+target/
+Cargo.lock
+
+###############
+# 🐳 DOCKER
+###############
+docker-data/
+docker-compose.override.yml
+
+###############
+# 🔒 ENVIRONNEMENTS
+###############
+.env
+.env.*
+venv/
+.venv/
+env/
+ENV/
+
+###############
+# 🧪 TESTS / COVERAGE
+###############
+coverage/
+.coverage
+pytest_cache/
+htmlcov/
+
+###############
+# ⚙️ CI/CD
+###############
+.github/workflows/*.tmp
+.github/workflows/*.bak
+
+###############
+# 🪖 MILITARY FRAMEWORKS (LTactic / BlueTeam)
+###############
+reports/
+intel/
+missions/
+ops/
