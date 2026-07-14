@@ -1,0 +1,59 @@
+##############################################
+# 🪖 .gitconfig — MIL‑PRO++ v6
+# Optimisé pour : Linux, UserLAnd, Termux,
+# Python, Shell, CI/CD, GitHub.
+##############################################
+
+[user]
+    name = YOUR_NAME
+    email = YOUR_EMAIL@example.com
+    signingkey = # ID de clé GPG (optionnel)
+
+[core]
+    editor = vim
+    autocrlf = input
+    fscache = true
+    excludesfile = ~/.gitignore_global
+    pager = less -FRSX
+
+[color]
+    ui = auto
+
+[alias]
+    st = status --short --branch
+    co = checkout
+    br = branch
+    ci = commit
+    lg = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset %C(cyan)%ad%Creset %C(green)%an%Creset %C(bold blue)%d%Creset %s' --date=short
+    amend = commit --amend --no-edit
+    unstage = reset HEAD --
+    last = log -1 --stat
+    visual = !gitk --all &
+    ops = "!f() { git add -A && git commit -m \"ops: $1\"; }; f"
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple
+
+[credential]
+    helper = cache --timeout=3600
+
+[init]
+    defaultBranch = main
+
+[commit]
+    template = .gitedit
+
+[merge]
+    tool = vimdiff
+
+[diff]
+    tool = vimdiff
+
+[includeIf "gitdir:~/UserLAnd/"]
+    path = ~/.gitconfig-userland
+
+[includeIf "gitdir:~/ops/"]
+    path = ~/.gitconfig-ops
