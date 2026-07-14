@@ -1,0 +1,37 @@
+##############################################
+# 🪖 TEMPLATE DE COMMIT — MIL‑COMMIT v6
+# Format militaire : clair, structuré, efficace.
+##############################################
+
+# Format recommandé :
+# type(scope): résumé court
+#
+# Types :
+#   feat, fix, docs, style, refactor,
+#   perf, test, chore, ci, build, ops
+#
+# Exemple :
+#   feat(core): ajout du module scanner
+
+type(scope): résumé court du commit
+
+# 📝 Description détaillée :
+# - Pourquoi ce changement ?
+# - Quel problème résout-il ?
+# - Impact sur CORE / OPS / LTactic / BlueTeam ?
+# - Limitations éventuelles ?
+# - Compatibilité UserLAnd / Termux ?
+
+# 🧨 BREAKING CHANGE:
+# Décrire ici les changements majeurs + instructions de migration.
+
+# 🪖 Missions / OPS :
+# - Mission liée ?
+# - Module LTactic impacté ?
+# - Fichier stratégique modifié ?
+
+# 🔗 Issues fermées :
+# Closes #123
+
+# 👥 Co-auteurs :
+# Co-authored-by: Nom <email@example.com>
