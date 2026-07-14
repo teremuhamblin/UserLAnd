@@ -9,6 +9,8 @@ UserLAnd/
       ├── workflows
       └── greetings.yml
 └── .gitignore
+└── .gitconfig
+└── .gitedit
 └── .gitkeep
 ├── start.sh
 ```
