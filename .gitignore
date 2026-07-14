@@ -1,7 +1,8 @@
 ##############################################
-# 🪖 GITIGNORE MIL-PRO — VERSION 5.0 ULTIMATE
-# Compatible : Linux, UserLAnd, Termux, Python,
-# Shell, Node, Go, Rust, Docker, CI/CD, GitHub.
+# 🪖 GITIGNORE MIL-PRO++ — VERSION 6.1 SUPRÊME
+# Ultra-compatible : Linux, UserLAnd, Termux,
+# Python, Shell, Node, Go, Rust, Docker, CI/CD,
+# GitHub, Frameworks militaires (LTactic, BlueTeam).
 ##############################################
 
 ###############
@@ -10,13 +11,16 @@
 *.log
 *.log.*
 logs/
+log/
 tmp/
+tmp/*
 /tmp/userland.log
 
 ###############
 # ⚡ CACHE / TEMP
 ###############
 cache/
+cache/*
 session/
 *.cache
 *.tmp
@@ -24,6 +28,8 @@ session/
 *.bak
 *.swp
 *.swo
+*.lock
+*.pid
 
 ###############
 # 🐍 PYTHON
@@ -38,6 +44,9 @@ build/
 dist/
 pip-wheel-metadata/
 *.spec
+.pytest_cache/
+.mypy_cache/
+ruff_cache/
 
 ###############
 # 🐚 SHELL / EDITORS
@@ -48,6 +57,7 @@ pip-wheel-metadata/
 *.swo
 *.kate-swp
 *.viminfo
+*.orig
 
 ###############
 # 🖥️ SYSTEM FILES
@@ -55,6 +65,7 @@ pip-wheel-metadata/
 .DS_Store
 Thumbs.db
 Desktop.ini
+*.lnk
 
 ###############
 # 📦 NODE / JS
@@ -66,6 +77,8 @@ yarn-error.log*
 .next/
 .nuxt/
 dist/
+.vscode/
+.eslintcache
 
 ###############
 # 🦾 GO
@@ -74,18 +87,22 @@ bin/
 pkg/
 *.exe
 *.test
+go.sum
 
 ###############
 # 🦾 RUST
 ###############
 target/
 Cargo.lock
+*.rs.bk
 
 ###############
 # 🐳 DOCKER
 ###############
 docker-data/
 docker-compose.override.yml
+*.tar
+*.img
 
 ###############
 # 🔒 ENVIRONNEMENTS
@@ -96,20 +113,26 @@ venv/
 .venv/
 env/
 ENV/
+*.secret
+*.key
 
 ###############
 # 🧪 TESTS / COVERAGE
 ###############
 coverage/
 .coverage
-pytest_cache/
 htmlcov/
+pytest_cache/
+test-output/
+junit.xml
 
 ###############
 # ⚙️ CI/CD
 ###############
 .github/workflows/*.tmp
 .github/workflows/*.bak
+.github/actions-cache/
+*.retry
 
 ###############
 # 🪖 MILITARY FRAMEWORKS (LTactic / BlueTeam)
@@ -118,3 +141,10 @@ reports/
 intel/
 missions/
 ops/
+ops/*
+scanners/
+scanners/*
+modules/
+modules/*
+tools/
+tools/*
